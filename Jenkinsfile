@@ -17,6 +17,8 @@ pipeline {
       steps {
         echo 'Hello Deploy'
         sleep 10
+        input(message: 'Deploy to Production', id: 'ProdDeploy', ok: 'OK To Deploy', submitter: 'mdlockwood')
+        echo 'Deploying to Production now'
       }
     }
     stage('Final') {
