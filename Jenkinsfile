@@ -8,9 +8,31 @@ pipeline {
       }
     }
     stage('Test') {
-      steps {
-        echo 'Hello Test'
-        sleep 10
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Hello Test'
+            sleep 10
+          }
+        }
+        stage('Test01') {
+          steps {
+            echo 'Hello Test01'
+            sleep 10
+          }
+        }
+        stage('Test02') {
+          steps {
+            echo 'Hello Test02'
+            sleep 10
+          }
+        }
+        stage('Test03') {
+          steps {
+            echo 'Hello Test03'
+            sleep 10
+          }
+        }
       }
     }
     stage('Deploy') {
